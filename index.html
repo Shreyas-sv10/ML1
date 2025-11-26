@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Crowd Density Predictor</title>
+
+    <!-- LINKED CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND ANIMATED GRADIENT -->
+    <div class="background"></div>
+
+    <header class="hero">
+        <h1 class="hero-title">Temple & Tourist Spot<br><span>Crowd Density Predictor</span></h1>
+        <p class="hero-subtitle">A beautiful, intelligent simulation predicting how crowded a location will be — powered by AI-logic.</p>
+    </header>
+
+    <main class="main-container">
+
+        <!-- LEFT AREA -->
+        <section class="card large-card">
+
+            <div class="card-header">
+                <h2>Prediction Input Panel</h2>
+                <p>Fill in the details below to simulate the crowd density.</p>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <select id="location">
+                        <option>Chamundi_Temple</option>
+                        <option>Nanjangud_Temple</option>
+                        <option>Srirangapatna_Temple</option>
+                        <option>Mysore_Palace</option>
+                        <option>Brindavan_Gardens</option>
+                        <option>Mysore_Zoo</option>
+                        <option>KRS_Dam</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input id="date" type="date">
+                </div>
+
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Hour</label>
+                    <select id="hour"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>Weather</label>
+                    <select id="weather">
+                        <option>Clear</option>
+                        <option>Cloudy</option>
+                        <option>Rain</option>
+                        <option>Hot</option>
+                        <option>Humid</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Temperature (°C)</label>
+                    <input id="temp" type="number" min="0" max="50" step="0.1" value="26">
+                </div>
+
+                <div class="form-group check-row">
+                    <label class="check"><input type="checkbox" id="is_festival"> Festival</label>
+                    <label class="check"><input type="checkbox" id="is_holiday"> Holiday</label>
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button id="predictBtn" class="btn primary">Predict Crowd</button>
+                <button id="randomizeBtn" class="btn ghost">Random Sample</button>
+            </div>
+
+            <!-- RESULT AREA -->
+            <div id="resultArea" class="result-card hidden">
+                <h3>Prediction Result</h3>
+
+                <div class="result-content">
+
+                    <div class="left">
+                        <p class="small-label">Crowd Level</p>
+                        <div class="density-row">
+                            <span id="densityBadge" class="badge">--</span>
+                            <span id="densityText" class="density-text">--</span>
+                        </div>
+                        <p id="suggestion" class="suggestion">--</p>
+                    </div>
+
+                    <div class="right">
+                        <p class="small-label">Estimated Footfall</p>
+                        <h2 id="footfall" class="footfall">--</h2>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT AREA -->
+        <aside class="card side-card">
+
+            <h2>Simulation Statistics</h2>
+
+            <div class="stat-box">
+                <p>Total Samples Generated</p>
+                <h2 id="sampleCount">—</h2>
+            </div>
+
+            <div class="stat-box">
+                <p>Quartile Ranges</p>
+                <h2 id="quartiles">—</h2>
+            </div>
+
+            <div class="heatmap" id="heatArea">
+                Heatmap Preview
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        Built with ❤️ • Advanced UI • Mobile Friendly • ML Ready
+    </footer>
+
+    <!-- LINKED JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
